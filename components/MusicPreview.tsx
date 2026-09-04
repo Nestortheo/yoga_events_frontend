@@ -17,10 +17,12 @@ export default function MusicPreview(){
                 width={500}
                 height={500}
                 className="
+                    hidden
+                    lg:block
                     pointer-events-none
                     absolute
                     left-[-250px]
-                    top-0
+                    top-14
                     opacity-20
                 "
             />
@@ -31,10 +33,12 @@ export default function MusicPreview(){
                 width={500}
                 height={500}
                 className="
+                    hidden
+                    lg:block
                     pointer-events-none
                     absolute
                     right-[-250px]
-                    top-0
+                    top-14
                     opacity-20
                 "
             />
