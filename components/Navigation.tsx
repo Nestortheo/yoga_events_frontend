@@ -15,6 +15,7 @@ export default function Header(){
         <header className="
             fixed top-0 left-0 right-0 z-50
             w-full
+            overflow-hidden
             bg-[#f8f4ea]/95
             backdrop-blur-xl
             border-[#b08a45]/20
