@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 export default function AboutPreview(){
 
@@ -9,9 +8,11 @@ export default function AboutPreview(){
                 {/*LEFT*/}
                 <div className="
                         lg:w-2/5
-                        p-2 lg:p-10
+                        p-6 lg:p-10
                         flex flex-col justify-center
                         gap-4
+                        items-center lg:items-start
+                        text-center lg:text-left
                     "
                 >
                     <h2 className="text-sm text-yellow-900 font-semibold tracking-[0.2em]">ABOUT</h2>
@@ -55,7 +56,7 @@ export default function AboutPreview(){
                         </p>
                     </div>
 
-                    <p className="mt-3 text-sm tracking-[0.15em] text-yellow-900">
+                    <p className="hidden lg:block mt-3 text-sm tracking-[0.15em] text-yellow-900">
                         — SWAMI SATYANANDA SARASWATI
                     </p>
                 </div>
@@ -72,9 +73,18 @@ export default function AboutPreview(){
                     alt="Gauri & Sankalpananda performing kirtan"
                     width={1200}
                     height={1500}
-                    className="w-full h-[600px] object-cover object-center"
+                    className="
+                        w-full
+                        h-[420px]
+                        lg:h-[600px]
+                        object-cover
+                        object-center
+                    "
                 />
-
+                
+                <p className="lg:hidden mt-3 text-sm tracking-[0.12em] text-yellow-900">
+                        — SWAMI SATYANANDA SARASWATI
+                    </p>
 
                 </div>
             </div>
