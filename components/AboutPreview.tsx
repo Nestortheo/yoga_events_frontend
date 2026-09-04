@@ -8,7 +8,7 @@ export default function AboutPreview(){
                 {/*LEFT*/}
                 <div className="
                         lg:w-2/5
-                        p-6 lg:p-10
+                        p-6 lg:p-14
                         flex flex-col justify-center
                         gap-4
                         items-center lg:items-start
@@ -46,7 +46,7 @@ export default function AboutPreview(){
                     </p>
 
                     <div className="flex gap-4 mt-6">
-                        <div className="w-px bg-[#b08a45]/40" />
+                        <div className="w-2 bg-[#b08a45]/40" />
 
                         <p className="italic text-yellow-900">
                             “Through kirtan you can reach the highest pinnacle of spiritual
@@ -79,6 +79,7 @@ export default function AboutPreview(){
                         lg:h-[600px]
                         object-cover
                         object-center
+                        rounded-xl
                     "
                 />
                 
