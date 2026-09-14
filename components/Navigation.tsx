@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link";
 
 export default function Header(){
 
@@ -142,8 +143,8 @@ export default function Header(){
                     </div>
 
                     <div className="flex items-center gap-8">
-                    <a
-                        href="/#about"
+                    <Link
+                        href="/about"
                         className="
                             text-[#4a3925]
                             hover:text-[#a07838]
@@ -152,7 +153,7 @@ export default function Header(){
                         "
                     >
                         About
-                    </a>
+                    </Link>
 
                     <a
                         href="/#music"

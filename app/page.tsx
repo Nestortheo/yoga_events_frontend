@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div>
       <Hero />
-      <div className="max-w-7xl mx-auto flex flex-col gap-12 ">   
+      <div className="max-w-6xl mx-auto flex flex-col gap-12 ">   
         <AboutPreview />
         <MusicPreview />
         <h2>
