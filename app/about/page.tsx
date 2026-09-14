@@ -27,48 +27,83 @@ export default function AboutPage() {
 
         {/* 1. HERO / INTRO SECTION */}
         <section className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-          <div className="lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left gap-5">
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-bold tracking-[0.25em] text-[#8a6322] uppercase">
-                ABOUT US
-              </span>
-              <div className="w-6 h-px bg-[#b08a45]/40" />
-              <span className="text-[#b08a45] text-xs">✤</span>
-            </div>
 
-            <h1 className="text-3xl md:text-5xl font-serif text-amber-950 leading-tight">
-              A Shared Path of Yoga, Music & Devotion
-            </h1>
+        {/* LEFT */}
+        <div className="
+            lg:w-1/2
+            flex flex-col
+            items-center lg:items-start
+            text-center lg:text-left
+            gap-5
+        ">
+            <SectionHeader
+            eyebrow="ABOUT US"
+            title="A Shared Path of Yoga, Music & Devotion"
+            />
 
             <p className="text-stone-700 leading-relaxed text-base md:text-lg max-w-lg">
-              We are disciples of the Satyananda Yoga tradition. Inspired by the lifetime example of our Guru Swami Satyananda Saraswati, we share our path through sacred sound, community connection, and <em>seva</em> (selfless service).
+            We are disciples of the Satyananda Yoga tradition. Inspired by the
+            lifetime example of our Guru Swami Satyananda Saraswati, we share our
+            path through sacred sound, community connection, and{" "}
+            <em>seva</em> (selfless service).
             </p>
 
             <div className="pt-2 flex flex-wrap gap-4 justify-center lg:justify-start">
-              <Link 
+            <Link
                 href="/music"
-                className="px-6 py-3 rounded-full bg-[#8a6322] text-white text-sm tracking-wide hover:bg-[#72511a] transition-colors shadow-sm"
-              >
+                className="
+                px-6 py-3
+                rounded-full
+                bg-[#8a6322]
+                text-white
+                text-sm
+                tracking-wide
+                hover:bg-[#72511a]
+                transition-colors
+                shadow-sm
+                "
+            >
                 Listen to Music
-              </Link>
-              <Link 
-                href="/contact"
-                className="px-6 py-3 rounded-full border border-[#b08a45]/50 text-amber-950 text-sm tracking-wide hover:bg-[#b08a45]/10 transition-colors"
-              >
-                Get in Touch
-              </Link>
-            </div>
-          </div>
+            </Link>
 
-          <div className="lg:w-1/2 w-full relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg border border-[#b08a45]/20">
+            <Link
+                href="/contact"
+                className="
+                px-6 py-3
+                rounded-full
+                border border-[#b08a45]/50
+                text-amber-950
+                text-sm
+                tracking-wide
+                hover:bg-[#b08a45]/10
+                transition-colors
+                "
+            >
+                Get in Touch
+            </Link>
+            </div>
+        </div>
+
+        {/* RIGHT */}
+        <div className="
+            lg:w-1/2
+            w-full
+            relative
+            aspect-[4/3]
+            rounded-2xl
+            overflow-hidden
+            shadow-lg
+            border border-[#b08a45]/20
+        ">
             <Image
-              src="/images/aboutImage.png"
-              alt="Gauri and Sankalpananda performing kirtan"
-              fill
-              priority
-              className="object-cover object-center"
+            src="/images/aboutImage.png"
+            alt="Gauri and Sankalpananda performing kirtan"
+            fill
+            priority
+            className="object-cover object-center"
             />
-          </div>
+        </div>
+
         </section>
 
 
