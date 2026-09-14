@@ -2,17 +2,38 @@ import Image from "next/image";
 import Link from "next/link";
 
 // Reusable Section Header Component to prevent repetitive markup
-function SectionHeader({ eyebrow, title }: { eyebrow: string; title: string }) {
+function SectionHeader({
+  eyebrow,
+  title,
+  align = "center",
+}: {
+  eyebrow: string;
+  title: string;
+  align?: "center" | "left";
+}) {
+  const isLeft = align === "left";
+
   return (
-    <div className="flex flex-col items-center gap-3 text-center">
+    <div
+      className={`
+        flex flex-col gap-3
+        ${isLeft ? "items-start text-left" : "items-center text-center"}
+      `}
+    >
       <span className="text-xs font-bold tracking-[0.25em] text-[#8a6322] uppercase">
         {eyebrow}
       </span>
+
       <div className="flex items-center gap-2">
         <div className="w-6 h-px bg-[#b08a45]/40" />
-        <span className="text-[#b08a45] text-xs">✤</span>
+
+        <span className="text-[#b08a45] text-xs">
+          ✤
+        </span>
+
         <div className="w-6 h-px bg-[#b08a45]/40" />
       </div>
+
       <h2 className="text-3xl md:text-4xl font-serif font-normal text-amber-950 tracking-tight">
         {title}
       </h2>
@@ -39,6 +60,7 @@ export default function AboutPage() {
             <SectionHeader
             eyebrow="ABOUT US"
             title="A Shared Path of Yoga, Music & Devotion"
+            align="left"
             />
 
             <p className="text-stone-700 leading-relaxed text-base md:text-lg max-w-lg">
@@ -135,7 +157,15 @@ export default function AboutPage() {
 
 
         {/* 3. ESSENCE / PHILOSOPHY CARD */}
-        <section className="relative overflow-hidden rounded-3xl border border-[#b08a45]/40 bg-gradient-to-b from-[#f4efe4] to-[#e8dec9] px-6 py-16 shadow-md text-center">
+        <section className="
+                    relative overflow-hidden
+                    rounded-3xl
+                    border border-[#b08a45]/40 
+                    bg-gradient-to-b from-[#f4efe4] to-[#e8dec9] 
+                    px-6 py-16 
+                    shadow-md text-center
+                "
+        >
           {/* Subtle Decorative Mandala Background */}
           <Image
             src="/images/mandala.svg"
