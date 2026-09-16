@@ -44,7 +44,7 @@ function SectionHeader({
 export default function AboutPage() {
   return (
     <main className="pt-36 lg:pt-54 pb-20">
-      <div className="max-w-5xl mx-auto px-6 flex flex-col gap-20 md:gap-28">
+      <div className="max-w-6xl mx-auto px-6 flex flex-col gap-20 md:gap-28">
 
         {/* 1. HERO / INTRO SECTION */}
         <section className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">

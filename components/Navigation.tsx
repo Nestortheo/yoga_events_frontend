@@ -203,8 +203,8 @@ export default function Header(){
                         Shop
                     </a>
 
-                    <a
-                        href="/#contact"
+                    <Link
+                        href="/contact"
                         className="
                             text-[#4a3925]
                             hover:text-[#a07838]
@@ -213,7 +213,7 @@ export default function Header(){
                         "
                     >
                         Contact
-                    </a>
+                    </Link>
                 </div>
 
                 </nav>
