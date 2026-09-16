@@ -42,6 +42,20 @@ export default function ContactForm(){
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
 
+        const name = formData.name.trim();
+        const email = formData.email.trim();
+        const subject = formData.subject.trim();
+        const message = formData.message.trim();
+
+        if (!name || !email || !message || !subject) {
+            setMessage({
+                msg: "Please fill in all required fields.",
+                type: "error",
+            });
+
+            return;
+        }
+
         setMessage(null);
         setSubmitting(true);
 
@@ -57,7 +71,7 @@ export default function ContactForm(){
             const data = await response.json();
 
             if (!response.ok) {
-            throw new Error(data.message || "Something went wrong.");
+                throw new Error(data.message || "Something went wrong.");
             }
 
             console.log("Testing Payload ->", formData);
@@ -89,68 +103,75 @@ export default function ContactForm(){
     return (
         <form
         onSubmit={handleSubmit}
-        className="flex flex-col gap-6"
+        className="flex flex-col gap-6 "
         >
-        {/* Name */}
-        <div className="flex flex-col gap-2">
-            <label
-            htmlFor="name"
-            className="text-sm tracking-wide text-yellow-950/80"
-            >
-            Your Name
-            </label>
+        {/* Name + Email */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            {/* Name */}
+            <div className="flex flex-col gap-2">
+                <label
+                    htmlFor="name"
+                    className="text-sm tracking-wide text-yellow-950/80"
+                >
+                    Your Name
+                </label>
 
-            <input
-            id="name"
-            name="name"
-            type="text"
-            value={formData.name}
-            onChange={handleChange}
-            placeholder="Your name"
-            className="
-                rounded-lg
-                border border-yellow-900/20
-                bg-white/40
-                px-4 py-3
-                text-yellow-950
-                outline-none
-                transition
-                placeholder:text-yellow-950/35
-                focus:border-yellow-900/50
-                focus:bg-white/60
-            "
-            />
-        </div>
+                <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    required
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="John Doe"
+                    className="
+                        w-full
+                        rounded-lg
+                        border border-yellow-900/20
+                        bg-white/40
+                        px-4 py-3
+                        text-yellow-950
+                        outline-none
+                        transition
+                        placeholder:text-yellow-950/35
+                        focus:border-yellow-900/50
+                        focus:bg-white/60
+                    "
+                />
+            </div>
 
-        {/* Email */}
-        <div className="flex flex-col gap-2">
-            <label
-            htmlFor="email"
-            className="text-sm tracking-wide text-yellow-950/80"
-            >
-            Your Email
-            </label>
+            {/* Email */}
+            <div className="flex flex-col gap-2">
+                <label
+                    htmlFor="email"
+                    className="text-sm tracking-wide text-yellow-950/80"
+                >
+                    Your Email
+                </label>
 
-            <input
-            id="email"
-            name="email"
-            type="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="you@example.com"
-            className="
-                rounded-lg
-                border border-yellow-900/20
-                bg-white/40
-                px-4 py-3
-                text-yellow-950
-                outline-none
-                transition
-                placeholder:text-yellow-950/35
-                focus:border-yellow-900/50
-                focus:bg-white/60
-            "
-            />
+                <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="you@example.com"
+                    className="
+                        w-full
+                        rounded-lg
+                        border border-yellow-900/20
+                        bg-white/40
+                        px-4 py-3
+                        text-yellow-950
+                        outline-none
+                        transition
+                        placeholder:text-yellow-950/35
+                        focus:border-yellow-900/50
+                        focus:bg-white/60
+                    "
+                />
+            </div>
         </div>
 
         {/* Subject */}
@@ -166,6 +187,7 @@ export default function ContactForm(){
             id="subject"
             name="subject"
             type="text"
+            required
             value={formData.subject}
             onChange={handleChange}
             placeholder="What would you like to talk about?"
@@ -197,6 +219,7 @@ export default function ContactForm(){
             id="message"
             name="message"
             value={formData.message}
+            required
             onChange={handleChange}
             placeholder="Write your message here..."
             rows={6}
@@ -230,6 +253,7 @@ export default function ContactForm(){
             text-yellow-50
             transition
             hover:bg-yellow-950
+            cursor-pointer
             "
         >
             {submitting ? "SENDING..." : "SEND MESSAGE"}

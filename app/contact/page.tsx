@@ -21,7 +21,7 @@ function SectionHeader({
 }) {
     
     return (    
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col items-center gap-5 text-center lg:items-start lg:text-left">
             <span className="text-xs font-bold tracking-[0.25em] text-[#8a6322] uppercase">
                 {eyebrow}
             </span>
@@ -44,18 +44,23 @@ function SectionHeader({
 export default function ContactPage(){
     
     return(
-        <main className="pt-36 lg:pt-54 pb-20">
+        <main className="pt-54  pb-20">
             <div className="
-                max-w-6xl mx-auto
+                mx-auto
+                grid
+                max-w-7xl
+                grid-cols-1
+                gap-12
                 px-6
-                flex flex-col md:flex-row
-                gap-6 md:gap-10
+                lg:grid-cols-[1fr_280px_1.35fr]
+                lg:gap-10
             "
             >
                 {/* LEFT */}
                 <div className="
-                        lg:w-1/3
-                        flex flex-col gap-5
+                       flex flex-col gap-5
+                       items-center lg:items-start
+                       text-center lg:text-left
                 "
                 >
                     <SectionHeader
@@ -93,7 +98,7 @@ export default function ContactPage(){
                 </div>
 
                 {/* MIDDLE */}
-                <div className="hidden md:block md:w-1/4">
+                <div className="hidden md:block ">
                     <div className="relative aspect-[2/4] w-full overflow-hidden rounded-2xl">
                         <Image
                             src="/images/aboutImage.png"
@@ -106,7 +111,16 @@ export default function ContactPage(){
                 </div>
 
                 {/* RIGHT */}
-                <div className="flex-1">
+                <div className="
+                    flex-1
+                    rounded-2xl
+                    border border-yellow-900/15
+                    bg-white/35
+                    p-8 md:p-10
+                    shadow-[0_8px_30px_rgba(120,90,30,0.06)]
+                    backdrop-blur-sm
+                            
+                ">
                     <ContactForm />
 
                 </div>
