@@ -1,7 +1,7 @@
 "use client";
 
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type ContactFormData = {
     name: string,
@@ -18,12 +18,14 @@ const initialFormData: ContactFormData = {
 };
 
 export default function ContactForm(){
+
     const[formData, setFormData] = useState<ContactFormData>(initialFormData)
 
     const [submitting, setSubmitting] = useState(false);
+
     const [message, setMessage] = useState<{
-    msg: string;
-    type: "success" | "error";
+        msg: string;
+        type: "success" | "error";
     } | null>(null);
 
     {/* HandleChange Function */}
@@ -36,7 +38,12 @@ export default function ContactForm(){
         ...prev,
         [name]: value,
     }));
+    
     }
+
+    useEffect(() => {
+        console.log(formData)
+    },[formData])
 
     {/* HandleSubmit Function */}
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -67,8 +74,10 @@ export default function ContactForm(){
             },
             body: JSON.stringify(formData),
             });
-
+           
             const data = await response.json();
+            console.log("Data:", data);
+
 
             if (!response.ok) {
                 throw new Error(data.message || "Something went wrong.");
@@ -130,7 +139,7 @@ export default function ContactForm(){
                         border border-yellow-900/20
                         bg-white/40
                         px-4 py-3
-                        text-yellow-950
+                        text-yellow-900
                         outline-none
                         transition
                         placeholder:text-yellow-950/35
@@ -163,7 +172,7 @@ export default function ContactForm(){
                         border border-yellow-900/20
                         bg-white/40
                         px-4 py-3
-                        text-yellow-950
+                        text-yellow-900
                         outline-none
                         transition
                         placeholder:text-yellow-950/35
@@ -196,7 +205,7 @@ export default function ContactForm(){
                 border border-yellow-900/20
                 bg-white/40
                 px-4 py-3
-                text-yellow-950
+                text-yellow-900
                 outline-none
                 transition
                 placeholder:text-yellow-950/35
@@ -229,7 +238,7 @@ export default function ContactForm(){
                 border border-yellow-900/20
                 bg-white/40
                 px-4 py-3
-                text-yellow-950
+                text-yellow-900
                 outline-none
                 transition
                 placeholder:text-yellow-950/35

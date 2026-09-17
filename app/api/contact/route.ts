@@ -4,7 +4,9 @@ import { Resend } from "resend";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
+    
     try {
+        console.log("Request:", request);
         const body = await request.json();
 
         console.log("Received contact form:", body);

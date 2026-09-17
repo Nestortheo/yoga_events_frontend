@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Cormorant_Garamond } from "next/font/google";
+import { Mail, Calendar, Users } from "lucide-react";
 
 import ContactForm from "@/components/ContactForm";
 
@@ -52,13 +53,16 @@ export default function ContactPage(){
                 grid-cols-1
                 gap-12
                 px-6
-                lg:grid-cols-[1fr_280px_1.35fr]
+                lg:grid-cols-[minmax(0,1fr)_280px_minmax(0,1.35fr)]
                 lg:gap-10
+                lg:items-stretch
             "
             >
                 {/* LEFT */}
                 <div className="
-                       flex flex-col gap-5
+                       flex flex-col
+                       h-full
+                       gap-6
                        items-center lg:items-start
                        text-center lg:text-left
                 "
@@ -85,7 +89,7 @@ export default function ContactPage(){
                         </span>
                     </div>
                     
-                    <div className="flex items-center gap-5">
+                    <div className="mt-auto flex items-center gap-5">
                         <div className="w-px h-12 bg-yellow-900/40"/>
                         <span
                             className={`${cormorant.className} text-xl italic leading-relaxed text-yellow-950/55`}
@@ -99,7 +103,7 @@ export default function ContactPage(){
 
                 {/* MIDDLE */}
                 <div className="hidden md:block ">
-                    <div className="relative aspect-[2/4] w-full overflow-hidden rounded-2xl">
+                    <div className="relative  h-full min-h-[560px] w-full overflow-hidden rounded-2xl">
                         <Image
                             src="/images/aboutImage.png"
                             alt="A peaceful devotional setting"
@@ -112,19 +116,136 @@ export default function ContactPage(){
 
                 {/* RIGHT */}
                 <div className="
-                    flex-1
+                    flex
+                    h-full
+                    min-w-0
+                    flex-col
                     rounded-2xl
                     border border-yellow-900/15
                     bg-white/35
-                    p-8 md:p-10
+                    p-8
                     shadow-[0_8px_30px_rgba(120,90,30,0.06)]
                     backdrop-blur-sm
+                    md:p-10
                             
                 ">
                     <ContactForm />
 
                 </div>
             </div>
+
+        {/* CONTACT INFORMATION STRIP */}
+        <section className="max-w-7xl mx-auto mt-24 border-t border-yellow-900/15 px-6 pt-8">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-0">
+
+                {/* GENERAL INQUIRIES */}
+                <div className="flex items-center gap-4 md:border-r md:border-yellow-900/20 md:pr-8">
+                    <div
+                        className="
+                            flex
+                            h-12
+                            w-12
+                            shrink-0
+                            items-center
+                            justify-center
+                            rounded-full
+                            border border-yellow-900/15
+                            bg-yellow-900/10
+                        "
+                    >
+                        <Mail
+                            size={22}
+                            strokeWidth={1.5}
+                            className="text-yellow-900"
+                        />
+                    </div>
+
+                    <div className="flex flex-col gap-1">
+                        <span className="text-sm font-medium text-yellow-950">
+                            General Inquiries
+                        </span>
+
+                        <a
+                            href="mailto:hello@gaurisankalpananda.com"
+                            className="text-sm text-yellow-950/65 transition hover:text-yellow-900"
+                        >
+                            hello@gaurisankalpananda.com
+                        </a>
+                    </div>
+                </div>
+
+
+                {/* EVENT INVITATIONS */}
+                <div className="flex items-center gap-4 md:border-r md:border-yellow-900/20 md:px-8">
+                    <div
+                        className="
+                            flex
+                            h-12
+                            w-12
+                            shrink-0
+                            items-center
+                            justify-center
+                            rounded-full
+                            border border-yellow-900/15
+                            bg-yellow-900/10
+                        "
+                    >
+                        <Calendar
+                            size={22}
+                            strokeWidth={1.5}
+                            className="text-yellow-900"
+                        />
+                    </div>
+
+                    <div className="flex flex-col gap-1">
+                        <span className="text-sm font-medium text-yellow-950">
+                            Event Invitations
+                        </span>
+
+                        <p className="max-w-xs text-sm leading-5 text-yellow-950/65">
+                            We are available for kirtans, workshops and special gatherings.
+                        </p>
+                    </div>
+                </div>
+
+
+                {/* COLLABORATIONS */}
+                <div className="flex items-center gap-4 md:pl-8">
+                    <div
+                        className="
+                            flex
+                            h-12
+                            w-12
+                            shrink-0
+                            items-center
+                            justify-center
+                            rounded-full
+                            border border-yellow-900/15
+                            bg-yellow-900/10
+                        "
+                    >
+                        <Users
+                            size={22}
+                            strokeWidth={1.5}
+                            className="text-yellow-900"
+                        />
+                    </div>
+
+                    <div className="flex flex-col gap-1">
+                        <span className="text-sm font-medium text-yellow-950">
+                            Collaborations
+                        </span>
+
+                        <p className="max-w-xs text-sm leading-5 text-yellow-950/65">
+                            Let's create and share meaningful projects together.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+            
         </main>
     )
 }
